@@ -1,0 +1,282 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+body {
+    background-color: white;
+    color: #db0ca3;
+    font-family: "Roboto", Arial;
+    font-size: 2em;
+}
+
+.game-header {
+    padding: 20px;
+    margin: 45px auto 30px;
+    text-align: center;
+}
+
+.game-board {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 75px auto 0;
+}
+
+.board {
+    position: relative;
+}
+
+.board .tie-alert,
+.board .win-alert {
+    color: white;
+    background: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    left: -200px;
+    top: 44%;
+    opacity: 0;
+    font-size: .7em;
+    padding: 10px 15px;
+    border-radius: 4px;
+    -webkit-transition: all .4s;
+    transition: all .4s;
+    letter-spacing: 1px;
+}
+
+.board .win-alert {
+    right: -200px;
+    left: auto;
+}
+
+.board .tie-alert {
+    transition-delay: .2s;
+}
+
+.board .win-alert::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 34%;
+    left: -10px;
+}
+
+.board .tie-alert::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 34%;
+    right: -10px;
+}
+
+.board .tie-alert p {
+    margin: 0;
+}
+
+.board .tie-alert.tie {
+    opacity: 1;
+    left: -250px;
+}
+
+.board .win-alert.win {
+    opacity: 1;
+    right: -250px;
+}
+
+.square {
+    pointer-events: none;
+}
+
+.restart-button {
+    color: #db0ca3;
+}
+
+.status-empty {
+    pointer-events: auto;
+}
+
+.letter {
+    width: 41px;
+    height: 41px;
+    display: block;
+    opacity: 0;
+    -webkit-transform: scale(.8);
+    transform: scale(.8);
+    margin: 0 auto;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+}
+
+.letter.appear {
+    opacity: 1;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.restart-p {
+    margin: 100px auto 0;
+    text-align: center;
+    font-size: 1.6rem;
+    color: #db0ca3;
+    cursor: pointer;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+    width: auto;
+    width: 20%;
+    font-weight: bold;
+}
+
+.restart-p:hover {
+    color: #b80a89;
+}
+
+/*grid*/
+
+.square {
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+}
+
+.square:hover {
+    background: #8a547c;
+}
+
+.v {
+    border-left: 3px solid #8a547c;
+    border-right: 3px solid #8a547c;
+}
+
+.h {
+    border-top: 3px solid #8a547c;
+    border-bottom: 3px solid #8a547c;
+}
+
+.top-mid {
+    position: relative;
+    bottom: -3px;
+}
+
+.top-left {
+    position: relative;
+    right: -3px;
+    bottom: -3px;
+}
+
+.top-right {
+    position: relative;
+    left: -3px;
+    bottom: -3px;
+}
+
+.mid-left {
+    position: relative;
+    right: -3px;
+}
+
+.mid-right {
+    position: relative;
+    left: -3px;
+}
+
+.bottom-mid {
+    position: relative;
+    top: -3px;
+}
+
+.bottom-left {
+    position: relative;
+    top: -3px;
+    right: -3px;
+}
+
+.bottom-right {
+    position: relative;
+    top: -3px;
+    left: -3px;
+}
+
+/*strikes*/
+
+.end-strike {
+    position: absolute;
+    height: 4px;
+    background: #db0ca3;
+    opacity: 0;
+    transition: all .4s;
+    z-index: -10;
+}
+
+.end-strike.topLeftAcross {
+    width: 100%;
+    top: 16.5%;
+}
+
+.end-strike.topLeftDown {
+    width: 4px;
+    top: 0;
+    height: 100%;
+    left: 17%;
+}
+
+.end-strike.topLeftDiagonal {
+    width: 4px;
+    top: 0;
+    height: 100%;
+    left: 49.5%;
+    transform: rotateZ(-45deg) scale(1.2);
+}
+
+.end-strike.topMiddleDown {
+    width: 4px;
+    top: 0;
+    height: 100%;
+    left: 49.5%;
+}
+
+.end-strike.topRightDown {
+    width: 4px;
+    top: 0;
+    height: 100%;
+    left: 82%;
+}
+
+.end-strike.topRightDiagonal {
+    width: 4px;
+    top: 0;
+    height: 100%;
+    left: 49.3%;
+    transform: rotateZ(45deg) scale(1.2);
+}
+
+.end-strike.middleLeftAcross {
+    width: 100%;
+    top: 49.5%;
+}
+
+.end-strike.bottomLeftAcross {
+    width: 100%;
+    top: 82%;
+}
+
+.end-strike--shown {
+    opacity: 1;
+}

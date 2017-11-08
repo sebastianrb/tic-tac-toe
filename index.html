@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tic Tac Toe</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+        <link rel="stylesheet" href="./styles.css"/>
+        <script defer src="./main.js"></script>
+    </head>
+    <body>
+
+    <div class="container">
+        <h3 class="game-header">Play Against the Computer</h3>
+        <div class="game-board">
+            <div id="board" class="board">
+                <table>
+                  <tr id="row1">
+                    <td class="square top-left square-1 status-empty"></td>
+                    <td class="square v top-mid square-2 status-empty"></td>
+                    <td class="square top-right square-3 status-empty"></td>
+                  </tr>
+                  <tr id="row2">
+                    <td class="square h mid-left square-4 status-empty"></td>
+                    <td class="square v h square-5 status-empty"></td>
+                    <td class="square h mid-right square-6 status-empty"></td>
+                  </tr>
+                  <tr id="row3">
+                    <td class="square bottom-left square-7 status-empty"></td>
+                    <td class="square v bottom-mid square-8 status-empty"></td>
+                    <td class="square bottom-right square-9 status-empty"></td>
+                  </tr>
+                </table>
+                <div class="end-strike topLeftAcross"></div>
+                <div class="end-strike topLeftDown "></div>
+                <div class="end-strike topLeftDiagonal"></div>
+                <div class="end-strike topMiddleDown"></div>
+                <div class="end-strike topRightDown"></div>
+                <div class="end-strike topRightDiagonal"></div>
+                <div class="end-strike middleLeftAcross"></div>
+                <div class="end-strike bottomLeftAcross"></div>
+
+                <div class="tie-alert"><p>It's a tie!</p></div>
+                <div class="win-alert"><p></p></div>
+              </div>
+        </div>
+        <div class="game-results"></div>
+    </div>
+
+    <div class="restart-container">
+      <p class="restart-p">Restart</p>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    </body>
+</html>
